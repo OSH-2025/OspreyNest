@@ -2,6 +2,10 @@
 
 ## 组名：OspreyNest
 
+## 组徽
+
+![picture](/src/image.png)
+
 ## 成员：
 * 郭芮含 PB23111695（组长）
 * 刘艺璇 PB23111585
