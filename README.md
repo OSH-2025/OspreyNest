@@ -4,7 +4,7 @@
 
 ## 组徽
 
-![picture](/src/image.png)
+![picture](/pic/image.png)
 
 ## 成员：
 * 郭芮含 PB23111695（组长）
