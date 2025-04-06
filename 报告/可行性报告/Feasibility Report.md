@@ -165,7 +165,7 @@ WASM的模块化架构使得它在与其他系统模块集成时非常方便。�
 
 - **下载和烧录操作系统[1]**：
   - 从[Raspberry Pi Downloads](https://www.raspberrypi.com/software/)下载Raspberry Pi Imager，安装后插入MicroSD卡。
-  - ![](C:\Users\86157\AppData\Roaming\marktext\images\2025-04-04-19-45-50-image.png)
+  - ![](../../pic/image2.png)
   - 选择设备型号和操作系统（如Raspberry Pi OS），点击EDIT SETTINGS自定义：
     - 设置用户名、密码、Wi-Fi（SSID和密码）、主机名。
     - 启用SSH以便远程访问（可选择密码或公钥登录）。
