@@ -1,6 +1,5 @@
-[中文](README.md) | [English](README_En.md)
 # OspreyNest
-
+[中文](README.md) | [English](README_En.md)
 ## 组名：OspreyNest
 
 ## 组徽
