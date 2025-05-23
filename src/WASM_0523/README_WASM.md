@@ -91,11 +91,14 @@ cd emsdk
 # 激活最新版本
 ./emsdk activate latest
 
-# 应用环境变量（Windows系统使用emsdk_env.bat）
+# 应用环境变量
 source ./emsdk_env.sh
 ```
--Windows
-
+- Windows
+```bash
+# 应用环境变量
+.\emsdk_env.bat
+```
 #### 2. 编译C代码为WASM模块
 
 在包含`command_parser.c`的目录中执行以下命令：
