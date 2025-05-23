@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能语音控制系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>智能语音控制系统</h1>
+            <p>使用语音控制您的设备</p>
+        </header>
+        
+        <main>
+            <div class="voice-control">
+                <button id="start-recognition" class="mic-button">
+                    <span class="mic-icon">🎤</span>
+                    <span class="mic-text">开始语音</span>
+                </button>
+                
+                <div class="status">
+                    <div id="listening-status">等待指令...</div>
+                    <div id="transcription" class="transcription"></div>
+                    <div id="command-result" class="command-result"></div>
+                </div>
+            </div>
+            
+            <div class="device-controls">
+                <h2>设备状态</h2>
+                <div class="devices">
+                    <div class="device">
+                        <div class="device-icon">💡</div>
+                        <div class="device-info">
+                            <div class="device-name">客厅灯</div>
+                            <div class="device-status">状态: <span id="light-status">关闭</span></div>
+                        </div>
+                    </div>
+                    <!-- 可以添加更多设备 -->
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 智能语音控制系统 | <a href="#" id="toggle-log">显示/隐藏日志</a></p>
+            <div id="log-container" class="log-container">
+                <div class="log-header">系统日志</div>
+                <div id="log-content" class="log-content"></div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="nlp-parser.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
