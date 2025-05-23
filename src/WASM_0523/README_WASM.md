@@ -79,7 +79,7 @@ void freeJSONResult(char* ptr) {
 #### 1. 安装Emscripten工具链
 
 如果尚未安装Emscripten，请按照以下步骤安装（在VS Code终端或系统终端中执行）：
-
+- Linux
 ```bash
 # 克隆Emscripten仓库
 git clone https://github.com/emscripten-core/emsdk.git
@@ -94,20 +94,14 @@ cd emsdk
 # 应用环境变量（Windows系统使用emsdk_env.bat）
 source ./emsdk_env.sh
 ```
+-Windows
 
 #### 2. 编译C代码为WASM模块
 
 在包含`command_parser.c`的目录中执行以下命令：
 
 ```bash
-emcc command_parser.c -o nlp-parser.js \
-  -s WASM=1 \
-  -s MODULARIZE=1 \
-  -s EXPORT_NAME="createNlpParserModule" \
-  -s EXPORTED_FUNCTIONS='["_parseCommandAndReturnJSON", "_freeJSONResult"]' \
-  -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap", "allocate", "UTF8ToString", "stringToUTF8"]' \
-  --no-entry \
-  -O3  # 优化编译，提高性能
+emcc command_parse.c -o nlp-parser.js -s WASM=1 -s MODULARIZE=1 -s EXPORT_NAME="createNlpParserModule" -s EXPORTED_FUNCTIONS='["_parseCommandAndReturnJSON", "_freeJSONResult"]' -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap", "allocate", "UTF8ToString", "stringToUTF8"]' --no-entry -O3
 ```
 
 #### 3. 编译成功后会生成两个文件：
@@ -209,25 +203,3 @@ async function parseCommand(text) {
        }
    }
    ```
-
-### 调试与优化技巧
-
-1. **调试WASM模块**：
-   ```bash
-   # 生成带调试信息的版本
-   emcc command_parser.c -o nlp-parser.js -g4 ...
-   ```
-   在浏览器开发者工具中可以调试WASM代码
-
-2. **性能分析**：
-   使用浏览器的Performance工具分析WASM调用的性能开销
-
-3. **内存管理**：
-   - 确保正确调用`freeJSONResult`释放C分配的内存
-   - 避免频繁分配大内存块
-
-4. **错误处理**：
-   - 在C代码中添加更多错误检查
-   - 在JavaScript中完善异常处理逻辑
-
-通过以上步骤，你可以成功将指令解析逻辑用C语言实现并编译为WASM模块，集成到现有的语音控制应用中，提升关键业务逻辑的执行性能。
