@@ -8,11 +8,11 @@
 
 命令行，选择在浏览器中打开，会立刻进入监听模式
 
-![项目中的截图_1](bd61c5bb80829decd07b72e911b5411d.png)
+![项目中的截图_1](figs/bd61c5bb80829decd07b72e911b5411d.png)
 
-![项目中的截图_2](511a7a098c3ac12b5962fb97dba70b2d.png)
+![项目中的截图_2](figs/511a7a098c3ac12b5962fb97dba70b2d.png)
 
-进入监听模式之后需要说出唤醒词”小欧小欧“才能进入解析指令的步骤
+进入监听模式之后需要说出唤醒词“小欧小欧”才能进入解析指令的步骤
 
 目前我们已经能够实现指令解析功能，配合wasm的模块使用，并且实现GPIO引脚控制的反馈
 
@@ -20,4 +20,12 @@
 
 ### server.py使用说明
 
-在树莓派终端(根目录下)输入python3 home/OsperyNest/Desktop/server_new/server.py，树莓派即可开始监听端口5000。
+这段代码是一个基于 Flask 的 Web 服务器，用于通过 HTTP 请求控制树莓派的 GPIO 引脚。
+
+在树莓派终端(根目录下)输入python3 home/OsperyNest/Desktop/server_new/server.py，树莓派即可开始监听端口5000；
+
+此时，说出唤醒词“小欧小欧”和相关指令，可以实现对相关引脚的控制（目前已通过led灯测试）。
+
+flask服务器端详细信息如下：
+
+![](figs/image_flask.png)
