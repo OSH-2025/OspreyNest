@@ -948,38 +948,67 @@
             }
             
             // 执行设备控制指令
-            function executeCommand(command) {
+            async function executeCommand(command) {
                 const isOn = command.action === '打开';
                 let responseText = '';
 
-                if (command.target === '灯') {
-                    lightStatus.textContent = isOn ? '开启' : '关闭';
-                    lightStatus.className = `status-indicator ${isOn ? 'status-on' : 'status-off'}`;
-                    responseText = isOn ? '好的，灯已打开' : '好的，灯已关闭';
-                }
-                else if (command.target === '空调') {
-                    acStatus.textContent = isOn ? '开启' : '关闭';
-                    acStatus.className = `status-indicator ${isOn ? 'status-on' : 'status-off'}`;
-                    responseText = isOn ? '好的，空调已打开' : '好的，空调已关闭';
-                }
-                else if (command.target === '电视') {
-                    tvStatus.textContent = isOn ? '开启' : '关闭';
-                    tvStatus.className = `status-indicator ${isOn ? 'status-on' : 'status-off'}`;
-                    responseText = isOn ? '好的，电视已打开' : '好的，电视已关闭';
-                }
+                try {
+                    addDebug(`准备发送控制命令到树莓派: ${JSON.stringify(command)}`, 'success');
+
+                    // 构建请求体
+                    const requestData = {
+                        target: command.target,
+                        action: command.action,
+                        gpioCommand: command.gpioCommand
+                    };
                 
-                addDebug(`设备控制: ${command.target} -> ${isOn ? '开启' : '关闭'}`, 'success');
+                    // 发送 POST 请求到树莓派服务器
+                    const response = await fetch('http://192.168.137.125:5000/control', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(requestData)
+                    });
                 
-                // 语音回应
-                if (hasSpeechSynthesis && responseText) {
-                    speak(responseText);
-                }
+                    if (!response.ok) {
+                        throw new Error(`HTTP 错误! 状态码: ${response.status}`);
+                    }
                 
-                // 模拟设备响应延迟
-                setTimeout(() => {
+                    const data = await response.json();
+                
+                    // 根据设备更新 UI
+                    if (data.device === '灯') {
+                        lightStatus.textContent = data.status === 'on' ? '开启' : '关闭';
+                        lightStatus.className = `status-indicator ${data.status === 'on' ? 'status-on' : 'status-off'}`;
+                    } else if (data.device === '空调') {
+                        acStatus.textContent = data.status === 'on' ? '开启' : '关闭';
+                        acStatus.className = `status-indicator ${data.status === 'on' ? 'status-on' : 'status-off'}`;
+                    } else if (data.device === '电视') {
+                        tvStatus.textContent = data.status === 'on' ? '开启' : '关闭';
+                        tvStatus.className = `status-indicator ${data.status === 'on' ? 'status-on' : 'status-off'}`;
+                    }
+                
+                    responseText = data.message;
+                    addDebug(`树莓派响应: ${responseText}`, 'success');
+                
+                    // 更新连接状态
                     updateConnectionStatus(true);
-                    addDebug('设备响应成功', 'success');
-                }, 500);
+                
+                    // 语音回应
+                    if (hasSpeechSynthesis && responseText) {
+                        speak(responseText);
+                    }
+                } catch (error) {
+                    addDebug(`发送控制命令失败: ${error.message}`, 'error');
+                    updateConnectionStatus(false);
+                    responseText = '抱歉，控制设备失败，请检查树莓派连接';
+
+                    if (hasSpeechSynthesis) {
+                        speak(responseText);
+                    }
+                }
             }
             
             // 系统初始化
