@@ -208,6 +208,22 @@ async function parseCommand(text) {
    ```
 ### 实验结果
 - 已正确通过 command_parse.c 生成 nlp-parse.js 和 nlp-parse.wasm
+- 经检查，1. 与WASM模块交互的函数parseCommand()未能正确调用WASM函数解析指令，2. 未正确填写树莓派IP地址。已修改上述问题，修改结果如下：
+```
+  async function parseCommand(text) {
+    // 加载WASM模块
+    const createNlpParserModule = await import('./nlp-parser.js');
+    const nlpParser = await createNlpParserModule();
+
+    // 调用WASM函数解析指令
+    const jsonPtr = nlpParser._parseCommandAndReturnJSON(text);
+    const jsonString = nlpParser.UTF8ToString(jsonPtr);
+    const command = JSON.parse(jsonString);
+    nlpParser._freeJSONResult(jsonPtr);
+
+    return command;
+}
+```
 - 未解决：测试时显示createNlpParserModule不存在，即未能成功将nlp-parse.js中的函数导入。
   ```
    const createNlpParserModule = await import('./nlp-parser.js');
