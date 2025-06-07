@@ -206,3 +206,10 @@ async function parseCommand(text) {
        }
    }
    ```
+### 实验结果
+- 已正确通过 command_parse.c 生成 nlp-parse.js 和 nlp-parse.wasm
+- 未解决：测试时显示createNlpParserModule不存在，即未能成功将nlp-parse.js中的函数导入。
+  ```
+   const createNlpParserModule = await import('./nlp-parser.js');
+  ```
+- 为检查程序其余部分是否出错，暂时将nlp-parse.js中的函数直接黏贴至app.js中。经检验，程序已可正确解析指令，并传输指令
