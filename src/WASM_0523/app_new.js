@@ -120,6 +120,7 @@ async function parseCommand(text) {
     return command;
 }
 */
+/*
 // 与WASM模块交互的函数
 async function parseCommand(text) {
     // 加载WASM模块
@@ -134,9 +135,10 @@ async function parseCommand(text) {
 
     return command;
 }
-/* 
+*/
 async function parseCommand(text) {
     // 加载WASM模块
+    //为检查其余部分是否出错，暂将nlp-parse.js中的函数直接黏贴进入app.js中
     var createNlpParserModule = (() => {
   var _scriptName = typeof document != 'undefined' ? document.currentScript?.src : undefined;
   return (
@@ -160,7 +162,6 @@ var Module=moduleArg;var readyPromiseResolve,readyPromiseReject;var readyPromise
 
     return command;
 }
-*/
 
 // 发送指令到树莓派的函数//192.168.36.179
 async function sendCommandToRaspberryPi(command) {
