@@ -1,6 +1,6 @@
-### 将JavaScript指令解析逻辑转换为C语言
+## 1. 实验步骤： 编译C代码为WASM
 
-首先需要将JavaScript中的指令解析逻辑转换为C语言实现。以下是C语言版本的命令解析器：
+指令解析逻辑为C语言实现。以下是C语言版本的命令解析器：
 
 ```c
 // command_parser.c
@@ -206,9 +206,9 @@ async function parseCommand(text) {
        }
    }
    ```
-### 实验结果
+## 2. 实验结果
 - 已正确通过 command_parse.c 生成 nlp-parse.js 和 nlp-parse.wasm
-- 经检查，1. 与WASM模块交互的函数parseCommand()未能正确调用WASM函数解析指令，2. 未正确填写树莓派IP地址。已修改上述问题，修改结果如下：
+- 经检查，1. 与WASM模块交互的函数parseCommand()未能正确调用WASM函数解析指令 2. 未正确填写树莓派IP地址。已修改上述问题，修改结果如下：
 ```
   async function parseCommand(text) {
     // 加载WASM模块
