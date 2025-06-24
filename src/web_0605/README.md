@@ -38,6 +38,16 @@ WSL2 使用虚拟化网络，外部设备无法直接访问 WSL2 的端口。你
 在 WSL2 中运行 ip addr show eth0 | grep inet，找到 WSL2 的 IP 地址（形如 172.x.x.x）。
 在 Windows PowerShell（以管理员身份运行）设置端口转发：
 powershell
-netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=<WSL2_IP>
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=wsl_ip
 将 <WSL2_IP> 替换为 WSL2 的实际 IP。
+
 确保其他设备和运行 WSL2 的电脑在同一局域网内。
+
+使用netstat -a | findstr 8080确保  TCP    0.0.0.0:8080           LAPTOP-MQF6GGT1:0      LISTENING，
+然后在运行wsl2的电脑设置新的防火墙规则打开 控制面板 > 系统和安全 > Windows Defender 防火墙 > 高级设置 > 入站规则。
+创建新规则：
+类型：端口
+协议：TCP
+端口：8080
+允许连接
+其他与电脑处于同一局域网下的设备即可访问：http://192.168.177.82:8080
