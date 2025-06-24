@@ -29,3 +29,5 @@
 flask服务器端详细信息如下：
 
 ![](figs/image_flask.png)
+
+正在使用多设备访问此服务器。
