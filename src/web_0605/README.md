@@ -31,3 +31,13 @@ flask服务器端详细信息如下：
 ![](figs/image_flask.png)
 
 正在使用多设备访问此服务器。
+
+使用python3 -m http.server 8080 --bind 0.0.0.0，确认 Python HTTP 服务器绑定地址，
+WSL2 使用虚拟化网络，外部设备无法直接访问 WSL2 的端口。你需要将 Windows 的 8080 端口转发到 WSL2：
+
+在 WSL2 中运行 ip addr show eth0 | grep inet，找到 WSL2 的 IP 地址（形如 172.x.x.x）。
+在 Windows PowerShell（以管理员身份运行）设置端口转发：
+powershell
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=<WSL2_IP>
+将 <WSL2_IP> 替换为 WSL2 的实际 IP。
+确保其他设备和运行 WSL2 的电脑在同一局域网内。
