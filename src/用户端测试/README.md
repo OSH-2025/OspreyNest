@@ -35,7 +35,7 @@
 
 
 #### **4. 启动测试页面**
-1. 在 VS Code 终端输入 'python3 -m http.server 8080'
+1. 在 VS Code 终端输入 **python3 -m http.server 8080**
 2. 点击底部状态栏的 **Go Live** 
 3. 浏览器（Microsoft Edge）将自动打开，并显示树莓派控制界面
 
