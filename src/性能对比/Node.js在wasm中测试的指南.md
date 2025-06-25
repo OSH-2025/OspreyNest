@@ -1,6 +1,6 @@
 # Node.js 在 WASM 性能测试中的应用
 
-## 📋 什么是 Node.js
+##  什么是 Node.js
 
 ### 基本概念
 **Node.js** 是一个基于 Chrome V8 JavaScript 引擎的开源、跨平台 JavaScript 运行时环境。它允许开发者在服务器端运行 JavaScript 代码，而不仅仅是在浏览器中。
@@ -23,7 +23,7 @@ JavaScript 代码
 操作系统 API
 ```
 
-## 🎯 为什么在测试中选择 Node.js
+##  为什么在测试中选择 Node.js
 
 ### 1. **模拟树莓派环境的理想选择**
 - **资源轻量**: Node.js 占用内存小，与树莓派的资源限制环境相似
@@ -103,7 +103,7 @@ fs.writeFileSync('voice-control-test-results.json',
     JSON.stringify(results, null, 2));
 ```
 
-## 📥 安装和使用指南
+##  安装和使用指南
 
 ### 1. **安装 Node.js**
 
@@ -141,14 +141,14 @@ node device-simulation.js
 
 #### 测试输出示例:
 ```
-⏱️  准备开始测试...
-🚀 语音识别整体响应速度对比测试
-📱 模拟树莓派语音控制系统
+ 准备开始测试...
+ 语音识别整体响应速度对比测试
+ 模拟树莓派语音控制系统
 
-🧪 测试指令: "开灯"
-📊 WASM 总响应时间: 1811.59ms
-📊 JavaScript 总响应时间: 2100.57ms
-🏆 单次对比结果: WASM 更快
+ 测试指令: "开灯"
+ WASM 总响应时间: 1811.59ms
+ JavaScript 总响应时间: 2100.57ms
+ 单次对比结果: WASM 更快
 ```
 
 ### 3. **查看测试结果**
@@ -160,7 +160,7 @@ cat voice-control-test-results.json
 type voice-control-test-results.json
 ```
 
-## 🔍 技术对比分析
+##  技术对比分析
 
 ### Node.js vs 浏览器环境测试
 
@@ -183,7 +183,7 @@ type voice-control-test-results.json
 | **内存管理** | V8 优化 | GC 开销 |
 | **生态系统** | npm 丰富 | pip 成熟 |
 
-## 🚀 性能优化建议
+##  性能优化建议
 
 ### 1. **Node.js 配置优化**
 ```bash
@@ -212,7 +212,7 @@ for (let i = 0; i < iterations; i++) {
 const averageTime = results.reduce((a, b) => a + b, 0) / iterations;
 ```
 
-## 🎯 项目实际应用效果
+##  项目实际应用效果
 
 ### 1. **测试可靠性提升**
 - 消除了浏览器环境变量的干扰
@@ -229,21 +229,17 @@ const averageTime = results.reduce((a, b) => a + b, 0) / iterations;
 - 验证了 WASM 在嵌入式设备上的性能表现
 - 为实际部署提供了可靠的性能预期
 
-## 📊 总结
+##  总结
 
 Node.js 在本项目的 WASM 性能测试中发挥了关键作用：
 
-✅ **技术匹配**: 与项目 JavaScript 技术栈完美兼容  
-✅ **环境仿真**: 有效模拟树莓派运行环境  
-✅ **测试精度**: 提供高精度的性能测量能力  
-✅ **开发效率**: 简化了测试流程和结果分析  
-✅ **可靠性**: 确保了测试结果的一致性和可重现性  
+ **技术匹配**: 与项目 JavaScript 技术栈完美兼容  
+ **环境仿真**: 有效模拟树莓派运行环境  
+ **测试精度**: 提供高精度的性能测量能力  
+ **开发效率**: 简化了测试流程和结果分析  
+ **可靠性**: 确保了测试结果的一致性和可重现性  
 
 通过 Node.js，我们成功验证了 WASM 在语音控制系统中 **1.13% 的整体性能提升**和 **6.40% 的解析速度提升**，为项目的技术选型提供了可靠的数据支撑。
 
 ---
 
-**相关文件**: 
-- 测试脚本: `device-simulation.js`
-- 测试结果: `voice-control-test-results.json`  
-- 详细报告: `语音控制系统WASM性能测试报告.md` 
