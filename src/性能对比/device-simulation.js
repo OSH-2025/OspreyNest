@@ -233,7 +233,6 @@ async function performanceComparison() {
         console.log('📈 建议在更复杂的 NLP 处理中测试 WASM');
     }
     
-    console.log('\n🔍 注意: 这是模拟测试，实际结果可能因硬件和算法复杂度而异');
 }
 
 // 运行测试
