@@ -1,0 +1,110 @@
+{
+  "timestamp": "2025-06-24T12:50:01.123Z",
+  "summary": {
+    "wasmAverage": 2131.3895,
+    "jsAverage": 2155.727575,
+    "improvement": 24.338074999999662,
+    "percentage": 1.1289958565381186,
+    "wasmWins": true
+  },
+  "parsing": {
+    "wasmAverage": 0.4287,
+    "jsAverage": 0.458,
+    "improvement": 0.029299999999999993,
+    "percentage": 6.397379912663753
+  },
+  "details": {
+    "wasm": [
+      {
+        "total": 1811.5925,
+        "recognition": 1672.2438,
+        "parsing": 0.3704,
+        "device": 138.0943,
+        "command": {
+          "action": "on",
+          "target": "light",
+          "gpio": 18
+        }
+      },
+      {
+        "total": 2261.8738,
+        "recognition": 2119.3209,
+        "parsing": 0.7874,
+        "device": 139.9267,
+        "command": {
+          "action": "off",
+          "target": "light",
+          "gpio": 18
+        }
+      },
+      {
+        "total": 2182.0668,
+        "recognition": 2037.9538,
+        "parsing": 0.3298,
+        "device": 137.8124,
+        "command": {
+          "action": "on",
+          "target": "fan",
+          "gpio": 24
+        }
+      },
+      {
+        "total": 2270.0249,
+        "recognition": 2159.6156,
+        "parsing": 0.2272,
+        "device": 105.8564,
+        "command": {
+          "action": "off",
+          "target": "fan",
+          "gpio": 24
+        }
+      }
+    ],
+    "js": [
+      {
+        "total": 2100.5742,
+        "recognition": 1976.3918,
+        "parsing": 0.2743,
+        "device": 122.3885,
+        "command": {
+          "action": "on",
+          "target": "light",
+          "gpio": 18
+        }
+      },
+      {
+        "total": 1688.5299,
+        "recognition": 1550.518,
+        "parsing": 0.5274,
+        "device": 133.673,
+        "command": {
+          "action": "off",
+          "target": "light",
+          "gpio": 18
+        }
+      },
+      {
+        "total": 2437.9073,
+        "recognition": 2282.2112,
+        "parsing": 0.7123,
+        "device": 149.4101,
+        "command": {
+          "action": "on",
+          "target": "fan",
+          "gpio": 24
+        }
+      },
+      {
+        "total": 2395.8989,
+        "recognition": 2271.3824,
+        "parsing": 0.318,
+        "device": 119.8578,
+        "command": {
+          "action": "off",
+          "target": "fan",
+          "gpio": 24
+        }
+      }
+    ]
+  }
+}
