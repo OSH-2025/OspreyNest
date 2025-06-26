@@ -51,3 +51,5 @@ netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 conne
 端口：8080
 允许连接
 其他与电脑处于同一局域网下的设备即可访问：http://192.168.177.82:8080
+
+现可以使用手机端，电脑端多端查看网页，但语音识别仅支持chrome，edge浏览器，现尝试使用本地部署语音识别模型。
