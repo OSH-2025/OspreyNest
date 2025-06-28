@@ -64,7 +64,8 @@ llama-cli.exe -m D:\lab4\Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf -p "你的提示词�
 **参数说明**：
     - `-m`：指定模型文件路径，使用相对路径指向“models”文件夹中的模型文件。
     - `-p`：后跟要让模型处理的提示词，模型会基于此生成响应。
-
+![lab4_image1 示意图](pics/lab4_image1.png)
+![lab4_image2 示意图](pics/lab4_image2.png)
 
 ## 五、退出交互
 在与模型交互过程中，若想退出：
