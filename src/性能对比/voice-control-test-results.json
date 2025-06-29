@@ -1,109 +1,165 @@
 {
-  "timestamp": "2025-06-24T12:50:01.123Z",
+  "timestamp": "2025-06-29T11:12:17.577Z",
+  "testType": "大模型API + 指令处理器性能对比测试",
   "summary": {
-    "wasmAverage": 2131.3895,
-    "jsAverage": 2155.727575,
-    "improvement": 24.338074999999662,
-    "percentage": 1.1289958565381186,
-    "wasmWins": true
+    "llmStandardizationTime": 385.30455,
+    "wasmProcessingAvg": 0.10842500000000001,
+    "jsProcessingAvg": 0.32265,
+    "processingImprovement": 0.214225,
+    "processingPercentage": 66.39547497288083,
+    "wasmProcessingWins": true
   },
-  "parsing": {
-    "wasmAverage": 0.4287,
-    "jsAverage": 0.458,
-    "improvement": 0.029299999999999993,
-    "percentage": 6.397379912663753
-  },
+  "testCases": [
+    {
+      "original": "麻烦你帮我把客厅的照明设备启动一下",
+      "expected": "开灯"
+    },
+    {
+      "original": "可以帮我关闭一下房间里的灯光吗",
+      "expected": "关灯"
+    },
+    {
+      "original": "太热了，能不能把空调打开",
+      "expected": "开空调"
+    },
+    {
+      "original": "空调可以关掉了，不需要了",
+      "expected": "关空调"
+    }
+  ],
   "details": {
-    "wasm": [
+    "aiWasmMode": [
       {
-        "total": 1811.5925,
-        "recognition": 1672.2438,
-        "parsing": 0.3704,
-        "device": 138.0943,
+        "mode": "AI+WASM",
+        "total": 1.392,
+        "processing": {
+          "wasmTime": 0.1561,
+          "type": "WASM编译优化处理"
+        },
         "command": {
-          "action": "on",
-          "target": "light",
-          "gpio": 18
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
       },
       {
-        "total": 2261.8738,
-        "recognition": 2119.3209,
-        "parsing": 0.7874,
-        "device": 139.9267,
+        "mode": "AI+WASM",
+        "total": 1.831,
+        "processing": {
+          "wasmTime": 0.1381,
+          "type": "WASM编译优化处理"
+        },
         "command": {
           "action": "off",
           "target": "light",
-          "gpio": 18
+          "gpio": 17,
+          "gpioCommand": "gpio 17 low"
         }
       },
       {
-        "total": 2182.0668,
-        "recognition": 2037.9538,
-        "parsing": 0.3298,
-        "device": 137.8124,
+        "mode": "AI+WASM",
+        "total": 1.0452,
+        "processing": {
+          "wasmTime": 0.0411,
+          "type": "WASM编译优化处理"
+        },
         "command": {
-          "action": "on",
-          "target": "fan",
-          "gpio": 24
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
       },
       {
-        "total": 2270.0249,
-        "recognition": 2159.6156,
-        "parsing": 0.2272,
-        "device": 105.8564,
+        "mode": "AI+WASM",
+        "total": 0.966,
+        "processing": {
+          "wasmTime": 0.0984,
+          "type": "WASM编译优化处理"
+        },
         "command": {
-          "action": "off",
-          "target": "fan",
-          "gpio": 24
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
       }
     ],
-    "js": [
+    "aiJsMode": [
       {
-        "total": 2100.5742,
-        "recognition": 1976.3918,
-        "parsing": 0.2743,
-        "device": 122.3885,
+        "mode": "AI+JavaScript",
+        "total": 3.1623,
+        "processing": {
+          "jsTime": 0.7951,
+          "type": "JavaScript解释执行处理"
+        },
         "command": {
-          "action": "on",
-          "target": "light",
-          "gpio": 18
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
       },
       {
-        "total": 1688.5299,
-        "recognition": 1550.518,
-        "parsing": 0.5274,
-        "device": 133.673,
+        "mode": "AI+JavaScript",
+        "total": 2.2494,
+        "processing": {
+          "jsTime": 0.2784,
+          "type": "JavaScript解释执行处理"
+        },
         "command": {
           "action": "off",
           "target": "light",
-          "gpio": 18
+          "gpio": 17,
+          "gpioCommand": "gpio 17 low"
         }
       },
       {
-        "total": 2437.9073,
-        "recognition": 2282.2112,
-        "parsing": 0.7123,
-        "device": 149.4101,
+        "mode": "AI+JavaScript",
+        "total": 3.4768,
+        "processing": {
+          "jsTime": 0.2122,
+          "type": "JavaScript解释执行处理"
+        },
         "command": {
-          "action": "on",
-          "target": "fan",
-          "gpio": 24
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
       },
       {
-        "total": 2395.8989,
-        "recognition": 2271.3824,
-        "parsing": 0.318,
-        "device": 119.8578,
+        "mode": "AI+JavaScript",
+        "total": 1.7237,
+        "processing": {
+          "jsTime": 0.0049,
+          "type": "JavaScript解释执行处理"
+        },
         "command": {
-          "action": "off",
-          "target": "fan",
-          "gpio": 24
+          "action": "unknown",
+          "target": "none",
+          "gpio": null,
+          "gpioCommand": ""
         }
+      }
+    ],
+    "llmStandardization": [
+      {
+        "standardCommand": "麻烦你帮我把客厅的照明设备启动一下",
+        "time": 372.02
+      },
+      {
+        "standardCommand": "关灯",
+        "time": 408.5137
+      },
+      {
+        "standardCommand": "太热了，能不能把空调打开",
+        "time": 502.592
+      },
+      {
+        "standardCommand": "空调可以关掉了，不需要了",
+        "time": 258.0925
       }
     ]
   }
