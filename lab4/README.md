@@ -7,3 +7,5 @@
 - 基于已有部署参数进行分析、测试和优化。优化以 llama.cpp 的配置参数修改为主，不必修改底层系统环境，但需给出相应分析。
 - 选取对于所选性能指标以及 LLM 输出质量影响最大的优化操作，分析并说明原因。完成2项优化。
 - 将撰写的相关报告发布到公开媒体，如 CSDN、知乎或是自己的博客、channel，并在报告中提供链接。
+
+[链接](https://blog.csdn.net/2303_79364236/article/details/148996264?sharetype=blogdetail&sharerId=148996264&sharerefer=PC&sharesource=2303_79364236&spm=1011.2480.3001.8118)
