@@ -43,3 +43,29 @@ async function parseCommand(text) {
 
 ## 改进
 我们希望测试**AI+WASM 和 AI+JavaScript 的性能对比**，因此对测试文件device-simulation.js进行了改进。
+```
+    // AI+JavaScript模式测试（仅测试JavaScript处理标准指令部分）
+    async function testAIJavaScriptProcessing(standardCommand) {
+        console.log(`📝 AI+JavaScript模式: 处理标准指令 "${standardCommand}"`);
+        
+        const totalStart = process.hrtime.bigint();
+        
+        // 使用JavaScript处理标准化指令
+        console.log('   📝 JavaScript解释执行标准指令...');
+        const jsResult = jsFallbackProcessor(standardCommand);
+        console.log(`   ✅ JavaScript处理完成: ${jsResult.time.toFixed(4)}ms`);
+        console.log(`   🔌 生成GPIO命令: ${jsResult.result.gpioCommand}`);
+        
+        const totalTime = Number(process.hrtime.bigint() - totalStart) / 1000000;
+        
+        return {
+            mode: 'AI+JavaScript',
+            total: totalTime,
+            processing: {
+                jsTime: jsResult.time,
+                type: 'JavaScript解释执行处理'
+            },
+            command: jsResult.result
+        };
+    }
+```
