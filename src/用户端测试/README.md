@@ -7,7 +7,7 @@
 1. 访问 GitHub 仓库：[https://github.com/OSH-2025/OspreyNest](https://github.com/OSH-2025/OspreyNest)
 2. 进入 `src/用户端测试` 目录（或直接点击此链接：[用户端测试](https://github.com/OSH-2025/OspreyNest/tree/main/src/%E7%94%A8%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95)）
 3. 下载以下 4 个文件到本地电脑：
-   - `index.html`
+   - `index.html`(未接入大模型api)/`index_api.html`(接入大模型api)
    - `nlp-parser.js`
    - `nlp-parser.wasm`
    - `styles.css`
